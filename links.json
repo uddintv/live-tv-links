@@ -9,7 +9,7 @@
     },
     {
         "name": "EKATTOR TV",
-        "url": "https://www.youtube.com/embed/iWq2kH0iq2Q?autoplay=1"
+        "url": "https://www.youtube.com/embed/Z7R3s-KVg60?autoplay=1"
     },
     {
         "name": "JAMUNA TV",
@@ -25,15 +25,15 @@
     },
     {
         "name": "ATN NEWS",
-        "url": "https://www.youtube.com/embed/zEhp0_cRIOA?autoplay=1"
+        "url": "https://www.youtube.com/embed/03Rp8h4qykk?autoplay=1"
     },
     {
         "name": "NTV BANGLA",
-        "url": "https://www.youtube.com/embed/iWq2kH0iq2Q?autoplay=1"
+        "url": "https://www.youtube.com/embed/p6EO0TuILpw?autoplay=1"
     },
     {
         "name": "RTV BANGLA",
-        "url": "https://www.youtube.com/embed/ne8KnvpmipU?autoplay=1"
+        "url": "https://www.youtube.com/embed/iWq2kH0iq2Q?autoplay=1"
     },
     {
         "name": "NEWS24 BANGLA",
@@ -53,30 +53,46 @@
     },
     {
         "name": "ZEE 24 BANGLA",
-        "url": "https://www.youtube.com/embed/63g4vac45zM?autoplay=1"
+        "url": "https://www.youtube.com/embed/SnttYmAPGZI?autoplay=1"
     },
     {
         "name": "AL JAZEERA",
-        "url": "https://www.youtube.com/embed/FAP6vFOFS8w?autoplay=1"
+        "url": "https://www.youtube.com/embed/kad4RFaOr6A?autoplay=1"
+    },
+    {
+        "name": "ENG MUSIC",
+        "url": "https://www.youtube.com/embed/cW49rN_YYwQ?autoplay=1"
     },
     {
         "name": "ANIMALLS",
-        "url": "https://www.youtube.com/embed/7S-AGrZ8Hlw?autoplay=1"
+        "url": "https://www.youtube.com/embed/qnVWPEFJBbE?autoplay=1"
+    },
+    {
+        "name": "SOUTH MOVIES",
+        "url": "https://www.youtube.com/embed/fLetSV3Mbxo?autoplay=1"
     },
     {
         "name": "HINDI MOVIES",
-        "url": "https://www.youtube.com/embed/x2v4nVcV4s0?autoplay=1"
+        "url": "https://www.youtube.com/embed/kSUNvHbcDBk?autoplay=1"
     },
     {
         "name": "BANGLA MOVIES",
-        "url": "https://www.youtube.com/embed/gnz1X0VEvlI?autoplay=1"
+        "url": "https://www.youtube.com/embed/bqQqj1PxYuA?autoplay=1"
     },
     {
         "name": "CARTOON",
         "url": "https://www.youtube.com/embed/tzVQUgIVFSo?autoplay=1"
     },
     {
+        "name": "TOMJERRY",
+        "url": "https://www.youtube.com/embed/fkpqAvdgjeM?autoplay=1"
+    },
+    {
         "name": "HINDI MUSIC",
-        "url": "https://www.youtube.com/embed/tohsgMuvBps?autoplay=1"
+        "url": "https://www.youtube.com/embed/kSUNvHbcDBk?autoplay=1"
+    },
+    {
+        "name": "9XM MUSIC",
+        "url": "https://www.youtube.com/embed/kSUNvHbcDBk?autoplay=1"
     }
 ]
