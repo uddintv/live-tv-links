@@ -13,7 +13,7 @@ FILE_NAME = "links.json"
 
 CHANNELS_MAP = {
     "SOMOY TV": "Somoy TV Live সময় টিভি লাইভ",
-    "EKHON TV": "সরাসরি এখন টিভি",
+    "EKHON TV": "Ekhon TV Live সরাসরি এখন টিভি",
     "EKATTOR TV": "Ekattor TV Live একাত্তর টিভি লাইভ",
     "JAMUNA TV": "Jamuna TV Live যমুনা টিভি লাইভ",
     "DBC NEWS": "DBC News Live ডিবিসি নিউজ লাইভ",
@@ -36,70 +36,110 @@ CHANNELS_MAP = {
 
 # নির্দিষ্ট চ্যানেলের Channel ID
 CHANNEL_IDS = {
-    "EKHON TV": "UCWVqdPTigfQ-cSNwG7O9MeA"
+    "EKHON TV": "UCWVqdPTigfQ-cSNwG7O9MeA",
+
+    # উদাহরণ:
+    # "SOMOY TV": "YOUR_SOMOY_CHANNEL_ID",
+    # "JAMUNA TV": "YOUR_JAMUNA_CHANNEL_ID",
+    # "DBC NEWS": "YOUR_DBC_CHANNEL_ID",
 }
+
+
+def search_youtube(params, key):
+
+    params["key"] = key
+
+    try:
+        response = requests.get(
+            "https://www.googleapis.com/youtube/v3/search",
+            params=params,
+            timeout=20
+        )
+
+        data = response.json()
+
+        if response.status_code != 200:
+            error = data.get("error", {}).get("message", "")
+            print("API ERROR:", error)
+
+            # এই API Key-তে সমস্যা হলে পরের Key চেষ্টা
+            return None
+
+        return data.get("items", [])
+
+    except (requests.RequestException, ValueError) as e:
+        print("CONNECTION ERROR:", e)
+        return None
 
 
 def get_live_url(query, keys, channel_id=None):
 
     for key in keys:
+
         if not key:
             continue
 
-        params = {
-            "part": "snippet",
-            "eventType": "live",
-            "type": "video",
-            "maxResults": 10,
-            "order": "date",
-            "key": key
-        }
+        # প্রথমে Channel ID Search, এরপর Old Keyword Search
+        search_modes = []
 
-        # EKHON TV-এর জন্য সরাসরি Channel ID ব্যবহার
         if channel_id:
-            params["channelId"] = channel_id
-        else:
-            params["q"] = query
+            search_modes.append({
+                "channelId": channel_id
+            })
 
-        try:
-            response = requests.get(
-                "https://www.googleapis.com/youtube/v3/search",
-                params=params,
-                timeout=15
-            )
+        search_modes.append({
+            "q": query
+        })
 
-            data = response.json()
+        for search_filter in search_modes:
 
-            if response.status_code != 200:
-                print("API Error:", data.get("error", {}).get("message"))
-                continue
+            params = {
+                "part": "snippet",
+                "eventType": "live",
+                "type": "video",
+                "maxResults": 10,
+                "order": "date"
+            }
 
-            for item in data.get("items", []):
+            params.update(search_filter)
+
+            print("Searching:", search_filter)
+
+            items = search_youtube(params, key)
+
+            if items is None:
+                # API Key বা নেটওয়ার্ক সমস্যা হলে পরের Key
+                break
+
+            for item in items:
 
                 video_id = item.get("id", {}).get("videoId")
-                video_channel = item.get("snippet", {}).get("channelId")
+
+                snippet = item.get("snippet", {})
+                video_channel = snippet.get("channelId")
+                video_title = snippet.get("title", "")
 
                 if not video_id:
                     continue
 
-                # Channel ID যাচাই
-                if channel_id and video_channel != channel_id:
+                # Channel ID Search হলে অবশ্যই একই চ্যানেল হতে হবে
+                if (
+                    "channelId" in search_filter
+                    and video_channel != channel_id
+                ):
                     continue
 
-                print("Found Live:", item["snippet"]["title"])
-                print("Video ID:", video_id)
+                print("FOUND LIVE:", video_title)
+                print("VIDEO ID:", video_id)
 
                 return (
-                    f"https://www.youtube.com/embed/{video_id}?autoplay=1"
+                    f"https://www.youtube.com/embed/"
+                    f"{video_id}?autoplay=1"
                 )
 
-        except requests.RequestException as e:
-            print("Connection Error:", e)
-            continue
-
-        except (ValueError, KeyError) as e:
-            print("Data Error:", e)
-            continue
+            if "channelId" in search_filter:
+                print("No live found with Channel ID.")
+                print("Trying Keyword Search...")
 
     return None
 
@@ -112,12 +152,15 @@ try:
 except (FileNotFoundError, json.JSONDecodeError):
     old_results = []
 
-# পুরোনো লিংক সংরক্ষণের জন্য
+# পুরোনো লিংক সংরক্ষণ
 old_links = {
-    item["name"]: item["url"]
+    item["name"].upper(): item["url"]
     for item in old_results
-    if "name" in item and "url" in item
+    if isinstance(item, dict)
+    and "name" in item
+    and "url" in item
 }
+
 
 new_results = []
 
