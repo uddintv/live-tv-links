@@ -12,7 +12,7 @@ FILE_NAME = 'links.json'
 # এখানে বামপাশে বাটনের নাম (সব ক্যাপিটাল লেটার)
 CHANNELS_MAP = {
     "SOMOY TV": "Somoy TV Live সময় টিভি লাইভ",
-    "EKHON TV": "Ekhon TV Live এখন টিভি লাইভ",
+    "EKHON TV": "সরাসরি এখন টিভি",
     "EKATTOR TV": "Ekattor TV Live একাত্তর টিভি লাইভ",
     "JAMUNA TV": "Jamuna TV Live যমুনা টিভি লাইভ",
     "DBC NEWS": "DBC News Live ডিবিসি নিউজ লাইভ",
@@ -26,15 +26,10 @@ CHANNELS_MAP = {
     "CHANNEL 24": "Channel 24 Live চ্যানেল ২৪ লাইভ",
     "ZEE 24 BANGLA": "zee 24 bangla Live",
     "AL JAZEERA": "Al Jazeera English Live",
-    "ENG MUSIC": "Vevo Pop Live",
     "WILD LIVE": "National Geographic Wild Live",
     "ANIMALLS": "Discovery Live",
-    "SOUTH MOVIES": "South full Movies Hindi Dubbed",
     "HINDI MOVIES": "Bollywood Movies Live Streaming Free",
     "BANGLA MOVIES": "Bangla new full movie latest",
-    "CARTOON": "cartoons Live 24/7",
-    "TomJerry": "Tom and Jerry Live 24/7",
-    "HINDI MUSIC": "Hind Music Live Hindi Songs 24/7",
     "9XM MUSIC": "9XM Live Bollywood Music"
 }
    
