@@ -42,14 +42,16 @@ CHANNEL_IDS = {
     "EKATTOR TV": "@EkattorTelevision",
     "JAMUNA TV": "@JamunaTVbd",
     "DBC NEWS": "@dbcnewstv",
-    "CHANNEL I": "@ChanneliLive24",
     "ATN NEWS": "@atnnewsltd",
     "NTV BANGLA": "@NTVDigitalLive",
     "RTV BANGLA": "@RtvLiveBD",
     "NEWS24 BANGLA": "@news24livetv",
     "DESH TV": "@livedeshtv",
     "INDEPENDENT": "@IndependentTelevision",
-    "CHANNEL 24": "@channel24digital"
+    "CHANNEL 24": "@channel24digital",
+    "AL JAZEERA": "@aljazeeraenglish",
+    "WILD LIVE": "@NatGeoAnimals"
+    
 }
 
 
