@@ -17,7 +17,7 @@ CHANNELS_MAP = {
     "EKATTOR TV": "Ekattor TV Live একাত্তর টিভি লাইভ",
     "JAMUNA TV": "Jamuna TV Live যমুনা টিভি লাইভ",
     "DBC NEWS": "DBC News Live ডিবিসি নিউজ লাইভ",
-    "CHANNEL I": "চ্যানেল আই লাইভ",
+    "CHANNEL I": "CHANNEL I Live চ্যানেল আই লাইভ",
     "ATN NEWS": "ATN News Live এটিএন নিউজ লাইভ",
     "NTV BANGLA": "NTV Bangladesh Live এনটিভি লাইভ",
     "RTV BANGLA": "Rtv Bangladesh Live আরটিভি লাইভ",
